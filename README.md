@@ -17,9 +17,9 @@
 
   <p align="center">
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    <a href="https://github.com/MaxMLang/discorbot_uni/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/MaxMLang/discorbot_uni/issues">Request Feature</a>
   </p>
 </div>
 
