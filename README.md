@@ -9,8 +9,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/maxmlang/DiscordBot_Uni">
+    <img src="images/unimuc-logo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">UNIMUC - A university discord bot</h3>
