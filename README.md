@@ -1,105 +1,243 @@
-# The Idea
-Now that my semester is over and  I do not have a lot of lectures anymore, I decided to continue focusing on studying Python in addition to R. My first project however is not a Data Analysis one - it is a bot.
-Due to the Covid-19 Pandemic my friends and I were more or less forced to start our Bachelor studies online. Most of them I have not even met in real life yet. So our main tool to communicate, study together and meet up is our own Discord server. On that server are almost 200 students that use it to meet up and connect. It is kind of like an virtual campus. While we were chatting and preparing for our exams, we discussed how cool it would be to have a bot that makes our virtual college life a bit easier. We discussed over a couple of functions it should have and already had some pretty cool ideas. Those ideas were now transformed into a working bot! 
+<!-- PROJECT SHIELDS -->
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][https://www.linkedin.com/in/maxmlang/]
 
-# Preparations
-Here we just link our code to our specific bot we created in the Github Developer Portal via the Discord Token. I have to omit this token because it is kind of the key to the whole bot. After that we create the bot itself and assign in to the bot variable. Pay attention to the `commands.Bot(command_prefix="uni$")` call. Here we specified the prefix of UNIMUC. So by using `uni$some_command` we can tell our bot what to do specifically.
-```{python, eval= FALSE}
-# INSERT THE SPECIFIC DISCORD TOKEN
-DISCORD_TOKEN = "XXXXXXXXXXXXXXX"
 
-# CREATES A NEW BOT OBJECT WITH A SPECIFIED PREFIX
-bot = commands.Bot(command_prefix="uni$")
-```
 
-# Main Functions
-In the following I want to present a couple of functions I implemented into the UNIMUC (the bot) and how I believe this could make everyones online college life a bit more easy. I will only focus on the functions and not go into detail on the packages I used. If you're interested in that check out the code on my [Github](https://github.com/MaxMLang/DiscordBot_Uni)
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/othneildrew/Best-README-Template">
+    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  </a>
 
-## Sending useful Links
-Many students struggle to keep an overview over all the websites. Lecture Periods, Moodle (Platform for courses in Statistics), Uni2Work (Platform for courses in Mathematics or Computer Science) and many more. This problem belongs now to the past. UNIMUC offers multiple functions to send them the links right into the channel. These functions are simple but really powerful. 
+  <h3 align="center">UNIMUC - A university discord bot</h3>
 
-All those functions work exactly the same, so I will just take one or two examples out. If you are interested in the whole source-code you can find it on my [Github](https://github.com/MaxMLang/DiscordBot_Uni) .
+  <p align="center">
+    <br />
+    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+  </p>
+</div>
 
-```{python, eval= FALSE}
-@bot.command(
-	help="Print out the link to the lecture periods",
-	brief="Prints link to lecture periods"
-)
-async def vz(ctx):
-	await ctx.channel.send("https://www.lmu.de/de/workspace-fuer-studierende/1x1-des-studiums/vorlesungszeiten/index.html")
 
-@bot.command(
-	help="Print out the link to the university website",
-	brief="Prints link to university website"
-)
-async def website(ctx):
-	await ctx.channel.send("https://www.lmu.de/de/index.html")
-```
-As you can see  I extracted the two functions `vz` and `website`. If a student types now `uni$vz` or `uni$website` UNIMUC will send him the specific link.
-On Discord this looks then like this:
-![Photo of the commands and bot reponse in Discord](images/Bildschirmfoto 2021-02-28 um 19.38.31.png){width=600px height=600px}
 
-## Fun Facts
-Sometimes you might be in the mood for some quick fun facts. "Did you know... 
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+  </ol>
+</details>
 
-... that UNIMUC can help you with that?"
 
-What UNIMUC basically does is take random string out of the `all_fun_facts` string array by using the `random.choice()` function from the `random` package. This simply gets assigned to a variable `fact` which UNIMUC will send back to the author.
-```{python, eval= FALSE}
-# Creating the String array (could also be outsourced to another doc)
-all_fun_facts = [ "53.091 students were enrolled @LMU in the WS 2019/2020", "787 Professors performed research @LMU", "LMU was Bavaria's first University", "LMU was founded in 1472", "1918 wurde der erste Studenten Ausschuss an der LMU gegründet", "1919 Max Weber joins the LMU faculty", "The Simpsons Paradox is not really a paradox"]
 
-@bot.command(
-	help= "Get a funfact",
-	brief= "Get a funfact"
-)
-async def funfact(ctx):
-	fact= random.choice(all_fun_facts)
-	await ctx.channel.send(fact)
-```
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-The output on Discord looks like this:
-![Screenshot Output](images/Bildschirmfoto 2021-02-28 um 19.48.59.png){width=600px height=300px}
+[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-## Encouragements
-Life can be frustrating. Student life can be even more frustrating, sometimes. UNIMUC will cheer you up again! You can use `uni$enc` to get some encouragement. The function works exactly the same as `uni$funfact`. However, UNIMUC can encourage you just by reading what you write in the chat. So e.g. if you write "Ich geb auf" ("I give up" in German) UNIMUC will send you some encouragement. So how does this work?
+There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
 
-First we have two arrays. The first one `sad_words` contains all the phrases UNIMUC identifies as something sad/frustrated people would write. The second one `starter_encouragements` contains the phrases UNIMUC will answer. 
+Here's why:
+* Your time should be focused on creating something amazing. A project that solves a problem and helps others
+* You shouldn't be doing the same tasks over and over like creating a README from scratch
+* You should implement DRY principles to the rest of your life :smile:
 
-So by using `on_message(message)` UNIMUC looks out for those phrases. To prevent endless bot replies I included the first `if` statement. The rest is pretty straightforward.
-```{python, eval= FALSE}
-sad_words = ["Ich geb auf", "Ich schaffe das nicht", "Das ist schwer", "traurig", "schwer", "hart", "So ein Müll"]
+Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
 
-starter_encouragements= ["Du schaffst das!", "Niemals aufgeben!", "Glaub an dich!", "Es ist immer ein Licht am Ende des Tunnels", "Work hard, cry later!"]
+Use the `BLANK_README.md` to get started.
 
-@bot.event
-async def on_message(message):
-		if message.author == bot.user:
-			return
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-		msg = message.content
-		if any(word in msg for word in sad_words):
-			await message.channel.send(random.choice(starter_encouragements))
-		await bot.process_commands(message)
-```
 
-Let's have a look how it works on Discord:
-![Output](images/Bildschirmfoto 2021-02-28 um 20.01.09.png){width=600px height=300px}
 
-As you can see the message just needs to contain the one word out of the `sad_words` array for UNIMUC to reply. 
+### Built With
 
-## Quotes
-Best comes last. This is one of my favorite features of UNIMUC. By using the `uni$quote` command, students can get an almost infinite amount of quotes from [Zenquotes](https://zenquotes.io). To work this out, I defined a `getQuote` function that will store the random quote from the website in a variable quote. The command `uni$quote` will just simply print the string into the channel on Discord.
+This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-```{python, eval= FALSE}
-# THIS FUNCTION WILL EXTRACT A QUOTE FROM ZENQUOTES.IO
-def getQuote():
-  response = requests.get("https://zenquotes.io/api/random")
-  json_data = json.loads(response.text)
-  quote = json_data[0]['q'] + " -" + json_data[0]['a']
-  return(quote)
-```
-The output looks like this:
-![](images/Bildschirmfoto 2021-02-28 um 20.09.37.png){width=600px height=300px}
+* [![Next][Next.js]][Next-url]
+* [![React][React.js]][React-url]
+* [![Vue][Vue.js]][Vue-url]
+* [![Angular][Angular.io]][Angular-url]
+* [![Svelte][Svelte.dev]][Svelte-url]
+* [![Laravel][Laravel.com]][Laravel-url]
+* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+* [![JQuery][JQuery.com]][JQuery-url]
 
-So whenver you need an inspirational quote `uni$quote` is the way to go!
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+This is an example of how you may give instructions on setting up your project locally.
+To get a local copy up and running follow these simple example steps.
+
+### Prerequisites
+
+This is an example of how to list things you need to use the software and how to install them.
+* npm
+  ```sh
+  npm install npm@latest -g
+  ```
+
+### Installation
+
+_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+
+1. Get a free API Key at [https://example.com](https://example.com)
+2. Clone the repo
+   ```sh
+   git clone https://github.com/your_username_/Project-Name.git
+   ```
+3. Install NPM packages
+   ```sh
+   npm install
+   ```
+4. Enter your API in `config.js`
+   ```js
+   const API_KEY = 'ENTER YOUR API';
+   ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- USAGE EXAMPLES -->
+## Usage
+
+Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+
+_For more examples, please refer to the [Documentation](https://example.com)_
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- ROADMAP -->
+## Roadmap
+
+- [x] Add Changelog
+- [x] Add back to top links
+- [ ] Add Additional Templates w/ Examples
+- [ ] Add "components" document to easily copy & paste sections of the readme
+- [ ] Multi-language Support
+    - [ ] Chinese
+    - [ ] Spanish
+
+See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- CONTRIBUTING -->
+## Contributing
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- LICENSE -->
+## License
+
+Distributed under the MIT License. See `LICENSE.txt` for more information.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- CONTACT -->
+## Contact
+
+Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+
+Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- ACKNOWLEDGMENTS -->
+## Acknowledgments
+
+Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
+
+* [Choose an Open Source License](https://choosealicense.com)
+* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
+* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
+* [Malven's Grid Cheatsheet](https://grid.malven.co/)
+* [Img Shields](https://shields.io)
+* [GitHub Pages](https://pages.github.com)
+* [Font Awesome](https://fontawesome.com)
+* [React Icons](https://react-icons.github.io/react-icons/search)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
+[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
+[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
+[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
+[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
+[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
+[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
+[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/othneildrew
+[product-screenshot]: images/screenshot.png
+[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
+[Next-url]: https://nextjs.org/
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
+[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
+[Vue-url]: https://vuejs.org/
+[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
+[Angular-url]: https://angular.io/
+[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
+[Svelte-url]: https://svelte.dev/
+[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
+[Laravel-url]: https://laravel.com
+[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
+[Bootstrap-url]: https://getbootstrap.com
+[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
+[JQuery-url]: https://jquery.com 
