@@ -10,7 +10,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/maxmlang/DiscordBot_Uni">
-    <img src="images/unimuc-logo.png" alt="Logo" width="80" height="80">
+    <img src="images/unimuc-logo.png" alt="Logo" width="150" height="150">
   </a>
 
   <h3 align="center">UNIMUC - A university discord bot</h3>
